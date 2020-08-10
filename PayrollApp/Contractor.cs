@@ -17,9 +17,10 @@ namespace PayrollApp
             this.rate = 30.00;
         }
 
-        public override void CalcTotalPay()
+        public override double CalcTotalPay()
         {
             this.basePay = this.rate * this.hours;
+            return this.basePay;
         }
 
         private double CalcOvertimeRate()

@@ -10,15 +10,24 @@ namespace PayrollApp
     {
         static void Main(string[] args)
         {
-            FileReader resourceManager = new FileReader();
+            bool userAuthenticated = false;
+            if (!PayrollUser.AdminUserExist())
+            {
+                // There are no users currently, we need to create the admin user first
 
-            Console.Write("Enter Username: ");
-            string username = Console.ReadLine().Trim();
-            
-            PayrollUser user = resourceManager.GetUserByUsername(username);
 
-            string passwordInput = GetPasswordInput();
-            if (user == null)
+                // We just created this user, we do not need to reauthenticate them
+                userAuthenticated = true;
+            }
+
+            if (!userAuthenticated)
+            {
+                Console.Write("Enter Username: ");
+                string username = Console.ReadLine().Trim();
+                string passwordInput = GetPasswordInput();
+            }
+
+            Console.ReadLine();
         }
 
         private static string GetPasswordInput()
