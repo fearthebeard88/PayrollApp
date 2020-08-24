@@ -46,6 +46,7 @@ namespace PayrollApp
             }
 
             // If we are here there are no command line arguments and there are valid users to load
+
             Console.Write("Username: ");
             string username = Console.ReadLine().Trim();
             string password = GetPasswordInput();
@@ -64,7 +65,31 @@ namespace PayrollApp
             }
 
             Console.Clear();
-            Console.WriteLine($"Welcome {user.firstname}!");
+            Console.WriteLine($"Welcome {user.firstname}!\n");
+
+            bool runAgain = false;
+            do
+            {
+                string currentRole = user.role.ToUpper();
+                switch (currentRole)
+                {
+                    case "EMPLOYEE":
+                        Employee employee = PayrollUser.GetEmployeeFromUser(user);
+                        break;
+                    case "CONTRACTOR":
+                        Contractor contractor = PayrollUser.GetEmployeeFromUser(user);
+                        break;
+                    case "MANAGER":
+                        Manager manager = PayrollUser.GetEmployeeFromUser(user);
+                        break;
+                    default:
+                        break;
+                }
+
+                Console.WriteLine("Run again? (y/n)");
+                runAgain = Console.ReadLine().Trim() == "y";
+            }
+            while (runAgain);
 
             Console.ReadLine();
         }

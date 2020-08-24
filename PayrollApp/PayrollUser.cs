@@ -17,9 +17,6 @@ namespace PayrollApp
         private readonly static string userFile = $"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}"
             + $"{Path.DirectorySeparatorChar}Payroll_Users.txt";
 
-        private readonly static string payrollFile = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)
-            + Path.DirectorySeparatorChar + "Payroll_Payroll.txt";
-
         private static char separator = ',';
 
         private const int SALTSIZE = 20;
