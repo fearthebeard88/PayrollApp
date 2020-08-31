@@ -15,7 +15,7 @@ namespace PayrollApp
 
         public readonly new List<string> FORMAT = new List<string>()
         {
-            "username", "rate", "hours", "name", "basePay", "totalPay"
+            "username", "rate", "hours", "name", "basePay"
         };
 
         public Contractor()
@@ -44,7 +44,7 @@ namespace PayrollApp
 
         public static Contractor GetContractorFromUser(PayrollUser user)
         {
-            if (user.role.ToUpper() != "Employee")
+            if (user.role.ToUpper() != "CONTRACTOR")
             {
                 return null;
             }

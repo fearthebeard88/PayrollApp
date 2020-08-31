@@ -20,7 +20,7 @@ namespace PayrollApp
 
         public readonly List<string> FORMAT = new List<string>()
         {
-            "username", "rate", "hours", "name", "basePay", "totalPay"
+            "username", "rate", "hours", "name", "basePay"
         };
 
         private protected string username { get; set; }
@@ -57,7 +57,7 @@ namespace PayrollApp
 
         public static Employee GetEmployeeFromUser(PayrollUser user)
         {
-            if (user.role.ToUpper() != "Employee")
+            if (user.role.ToUpper() != "EMPLOYEE")
             {
                 return null;
             }

@@ -67,20 +67,20 @@ namespace PayrollApp
             Console.Clear();
             Console.WriteLine($"Welcome {user.firstname}!\n");
 
+            string currentRole = user.role.ToUpper();
             bool runAgain = false;
             do
             {
-                string currentRole = user.role.ToUpper();
                 switch (currentRole)
                 {
                     case "EMPLOYEE":
-                        Employee employee = PayrollUser.GetEmployeeFromUser(user);
+                        Employee employee = Employee.GetEmployeeFromUser(user);
                         break;
                     case "CONTRACTOR":
-                        Contractor contractor = PayrollUser.GetEmployeeFromUser(user);
+                        Contractor contractor = Contractor.GetContractorFromUser(user);
                         break;
                     case "MANAGER":
-                        Manager manager = PayrollUser.GetEmployeeFromUser(user);
+                        Manager manager = Manager.GetManagerFromUser(user);
                         break;
                     default:
                         break;
